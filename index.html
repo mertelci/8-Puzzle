@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anasayfa</title>
+    <h1 id="game-title">8 Puzzle Game</h1>
+    <link rel="stylesheet" type="text/css" href="stylee.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js"></script>
+
 </head>
+
 <body>
-    
+
+
+    <div id="container">
+        <div id="puzzle-container">
+
+            <div class="tile"><img src="images/1.jpg" alt="1"></div>
+            <div class="tile"><img src="images/2.jpg" alt="2"></div>
+            <div class="tile"><img src="images/3.jpg" alt="3"></div>
+            <div class="tile"><img src="images/4.jpg" alt="4"></div>
+            <div class="tile"><img src="images/5.jpg" alt="5"></div>
+            <div class="tile"><img src="images/6.jpg" alt="6"></div>
+            <div class="tile"><img src="images/7.jpg" alt="7"></div>
+            <div class="tile"><img src="images/8.jpg" alt="8"></div>
+
+        </div>
+        <div class="hint">
+            <img id="hint-image" src="images/full.jpg" alt="İpucu" style="display: none;">
+        </div>
+    </div>
+
+    <button id="start-button">Shuffle</button>
+    <button id="solve-button">Solve</button>
+    <button id="hint-button" style="display: none;">Hint</button>
+    <button id="reset-button" style="display: none;">Reset</button>
+
+    <script src="priority-queue.js"></script>
+    <script src="puzzle.js"></script>
+
 </body>
+
 </html>
