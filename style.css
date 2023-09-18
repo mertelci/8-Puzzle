@@ -71,7 +71,7 @@ margin-top: 20px;
 .button-container button {
     padding: 20px 20px;
     font-size: 32px;
-    background-color: #3498db;
+    background-color: #000000;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -81,7 +81,7 @@ margin-top: 20px;
 }
 
 .button-container button:hover {
-    background-color: #2980b9;
+    background-color: #050505;
 }
 
 
@@ -97,6 +97,6 @@ margin-top: 20px;
     width: 600px;
     height: 600px;
     object-fit: cover;
+    display: none;
 
 }
-
