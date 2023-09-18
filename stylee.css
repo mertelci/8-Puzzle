@@ -10,17 +10,18 @@ body {
     font-size: 36px;
     font-weight: bold;
     color: #333;
-    margin-top: 10px;
+    margin-top: 30px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
 }
 
 #container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 70vh;
 
 }
 
@@ -30,11 +31,9 @@ body {
     gap: 0px;
     width: 600px;
     height: 600px;
-    background-image: none;
-    background-color: #f0f0f0;
     background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0 auto;
+   
+
 }
 
 .tile {
@@ -61,12 +60,16 @@ body {
    
 }
 
-#start-button,
-#shuffle-button,
-#solve-button
-{
-    margin-top: 30px;
-    padding: 20px 40px;
+.button-container {
+    display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+    
+}
+
+.button-container button {
+    padding: 20px 20px;
     font-size: 32px;
     background-color: #3498db;
     color: #fff;
@@ -74,33 +77,19 @@ body {
     cursor: pointer;
     border-radius: 10px;
     transition: background-color 0.3s;
-
+    margin:10px;
 }
 
-#hint-button,#reset-button {
-    margin-top: 20px;
-    padding: 20px 40px;
-    font-size: 32px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s;
-    margin: 0 auto;
-}
-
-#start-button:hover,
-#shuffle-button:hover,
-#solve-button:hover {
+.button-container button:hover {
     background-color: #2980b9;
 }
+
 
 #hint-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 20px;
+  
 
 }
 
@@ -111,6 +100,3 @@ body {
 
 }
 
-#hint-button {
-    margin-top: 10px;
-}
