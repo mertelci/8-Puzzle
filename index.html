@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
  <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet"
@@ -6,7 +6,7 @@
 
     
 <head>
- <title>8-Puzzle Game</title>
+    <title>8-Puzzle Game</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <h1 id="game-title">8 Puzzle Game</h1>
@@ -18,14 +18,30 @@
     <div id="container">
         <div id="puzzle-container">
 
-            <div class="tile"><img src="images/1.jpg" alt= "1"></div>
-            <div class="tile"><img src="images/2.jpg" alt="2"></div>
-            <div class="tile"><img src="images/3.jpg" alt="3"></div>
-            <div class="tile"><img src="images/4.jpg" alt="4"></div>
-            <div class="tile"><img src="images/5.jpg" alt="5"></div>
-            <div class="tile"><img src="images/6.jpg" alt="6"></div>
-            <div class="tile"><img src="images/7.jpg" alt="7"></div>
-            <div class="tile"><img src="images/8.jpg" alt="8"></div>
+            <div class="tile"><img src="images/1.jpg" alt= "1">
+                <span class="tile-number">1</span>
+            </div>
+            <div class="tile"><img src="images/2.jpg" alt="2">
+                <span class="tile-number">2</span>
+            </div>
+            <div class="tile"><img src="images/3.jpg" alt="3">
+                <span class="tile-number">3</span>
+            </div>
+            <div class="tile"><img src="images/4.jpg" alt="4">
+                <span class="tile-number">4</span>
+            </div>
+            <div class="tile"><img src="images/5.jpg" alt="5">
+                <span class="tile-number">5</span>
+            </div>
+            <div class="tile"><img src="images/6.jpg" alt="6">
+                <span class="tile-number">6</span>
+            </div>
+            <div class="tile"><img src="images/7.jpg" alt="7">
+                <span class="tile-number">7</span>
+            </div>
+            <div class="tile"><img src="images/8.jpg" alt="8">
+                <span class="tile-number">8</span>
+            </div>
 
         </div>
         <div class="hint">
@@ -40,6 +56,13 @@
     <button id="reset-button" style="display: none;">Reset</button>
     </div>
 
+    <div class="checkbox-container">
+        <label style="display: none;">
+            <input type="checkbox" id="toggle-numbers"> Show Numbers
+            <span class="checkmark"></span>
+        </label>
+    
+    
 
     <script src="priority-queue.js"></script>
     <script src="puzzle.js"></script>
