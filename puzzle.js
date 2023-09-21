@@ -4,53 +4,37 @@ const startButton = document.getElementById("start-button");
 const hintButton = document.getElementById("hint-button");
 const hintImage = document.getElementById("hint-image");
 const resetButton = document.getElementById("reset-button");
-const toggleNumbersCheckbox = document.getElementById("toggle-numbers"); // Yeni eklenen checkbox
-
+const toggleNumbersCheckbox = document.getElementById("toggle-numbers"); 
 let tiles = [];
 let gameStarted = false;
 let numbersVisible = false;
-
-// Initial state
 const initialState = [1, 2, 3, 4, 5, 6, 7, 8, ""];
 let currentState = [...initialState];
 let hintVisible = false; 
-
-
-// ... (Önceki kod parçacığınız)
-
 toggleNumbersCheckbox.addEventListener("change", () => {
-    numbersVisible = toggleNumbersCheckbox.checked; // Checkbox durumunu izle
-    showNumbers(); // Numaraların görünürlüğünü güncelle
+    numbersVisible = toggleNumbersCheckbox.checked; 
+    showNumbers(); 
 });
-
 function showNumbers() {
     const numberElements = document.querySelectorAll(".tile-number");
     numberElements.forEach((element) => {
-        element.style.display = numbersVisible ? "block" : "none"; // Numaraların görünürlüğünü güncelle
+        element.style.display = numbersVisible ? "block" : "none"; 
     });
 }
-
-// ... (Önceki kod parçacığınızın devamı)
-
-
-
-
-
 
 resetButton.addEventListener("click", () => {
     window.location.reload(); 
 });
-
 hintButton.addEventListener("click", () => {
     hintVisible = !hintVisible; 
 
+    
     if (hintVisible) {
         hintImage.style.display = "block"; 
     } else {
         hintImage.style.display = "none"; 
     }
 });
-
 
 window.onload = () => {
    
@@ -69,28 +53,19 @@ startButton.addEventListener("click", () => {
     if (!gameStarted) {
        
         createPuzzleBoard();
-
-       
         puzzleContainer.style.display = "grid";
-
         toggleNumbersCheckbox.parentElement.style.display = "block";
-       
         shufflePuzzle();
         showNumbers();
         document.getElementById("hint-button").style.display = "block";
         document.getElementById("reset-button").style.display = "block";
-        
         gameStarted = true;
-      
-
     }
     else {
-        
         shufflePuzzle();
         showNumbers();
     }
 });
-
 solveButton.addEventListener("click", () => {
     if (gameStarted) {
         solvePuzzle();
@@ -106,12 +81,10 @@ function createPuzzleBoard() {
         const img = document.createElement("img");
         img.src = currentState[i] !== "" ? `images/${currentState[i]}.jpg` : "images/black.jpg";
         tile.appendChild(img);
-
         const number = document.createElement("span");
         number.className = "tile-number";
         number.textContent = currentState[i] !== "" ? currentState[i] : "";
         tile.appendChild(number);
-
         tile.addEventListener("click", () => moveTile(i));
         puzzleContainer.appendChild(tile);
         tiles.push(tile);
@@ -162,7 +135,7 @@ function showCustomAlert(title) {
     });
 }
 
-// Move operation
+
 function moveTile(index) {
     if (canMoveTile(index)) {
         const emptyIndex = currentState.indexOf("");
@@ -178,7 +151,7 @@ function moveTile(index) {
             return;
         }
         if (!numbersVisible) {
-            // Numaralar görünür değilse, taşa tıklamadan sonra numaraları gizle
+           
             hideNumbers();
         }
     }
@@ -230,7 +203,7 @@ function solvePuzzle() {
 }
 
 
-// Calculate the heuristic value (Manhattan distance)
+
 function calculateHeuristic(state) {
     let h = 0;
     for (let i = 0; i < state.length; i++) {
@@ -274,7 +247,7 @@ function getNeighbors(state) {
     return neighbors;
 }
 
-// Reconstruct and display the path to the solution
+
 
 function reconstructPath(node) {
     const path = [];
@@ -285,7 +258,7 @@ function reconstructPath(node) {
     animateSolution(path);
 }
 
-// Helper function to animate the solution
+
 function animateSolution(path) {
     let i = 0;
     const interval = setInterval(() => {
@@ -305,7 +278,6 @@ function animateSolution(path) {
 
 shuffleButton.addEventListener("click", () => {
     
-
 });
 
 createPuzzleBoard();
