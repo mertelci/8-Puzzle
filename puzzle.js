@@ -1,18 +1,40 @@
-
 const puzzleContainer = document.getElementById("puzzle-container");
 const solveButton = document.getElementById("solve-button");
 const startButton = document.getElementById("start-button");
 const hintButton = document.getElementById("hint-button");
 const hintImage = document.getElementById("hint-image");
 const resetButton = document.getElementById("reset-button");
+const toggleNumbersCheckbox = document.getElementById("toggle-numbers"); // Yeni eklenen checkbox
 
 let tiles = [];
 let gameStarted = false;
+let numbersVisible = false;
 
 // Initial state
 const initialState = [1, 2, 3, 4, 5, 6, 7, 8, ""];
 let currentState = [...initialState];
 let hintVisible = false; 
+
+
+// ... (Önceki kod parçacığınız)
+
+toggleNumbersCheckbox.addEventListener("change", () => {
+    numbersVisible = toggleNumbersCheckbox.checked; // Checkbox durumunu izle
+    showNumbers(); // Numaraların görünürlüğünü güncelle
+});
+
+function showNumbers() {
+    const numberElements = document.querySelectorAll(".tile-number");
+    numberElements.forEach((element) => {
+        element.style.display = numbersVisible ? "block" : "none"; // Numaraların görünürlüğünü güncelle
+    });
+}
+
+// ... (Önceki kod parçacığınızın devamı)
+
+
+
+
 
 
 resetButton.addEventListener("click", () => {
@@ -39,6 +61,8 @@ window.onload = () => {
         puzzleContainer.style.backgroundImage = `url('${image.src}')`;
     };
     resetButton.style.display = "none";
+
+    showNumbers();
 };
 
 startButton.addEventListener("click", () => {
@@ -49,20 +73,21 @@ startButton.addEventListener("click", () => {
        
         puzzleContainer.style.display = "grid";
 
-
+        toggleNumbersCheckbox.parentElement.style.display = "block";
        
         shufflePuzzle();
-
+        showNumbers();
         document.getElementById("hint-button").style.display = "block";
         document.getElementById("reset-button").style.display = "block";
-
+        
         gameStarted = true;
-
+      
 
     }
     else {
         
         shufflePuzzle();
+        showNumbers();
     }
 });
 
@@ -81,6 +106,12 @@ function createPuzzleBoard() {
         const img = document.createElement("img");
         img.src = currentState[i] !== "" ? `images/${currentState[i]}.jpg` : "images/black.jpg";
         tile.appendChild(img);
+
+        const number = document.createElement("span");
+        number.className = "tile-number";
+        number.textContent = currentState[i] !== "" ? currentState[i] : "";
+        tile.appendChild(number);
+
         tile.addEventListener("click", () => moveTile(i));
         puzzleContainer.appendChild(tile);
         tiles.push(tile);
@@ -146,7 +177,18 @@ function moveTile(index) {
             }, 300); 
             return;
         }
+        if (!numbersVisible) {
+            // Numaralar görünür değilse, taşa tıklamadan sonra numaraları gizle
+            hideNumbers();
+        }
     }
+}
+
+function hideNumbers() {
+    const numberElements = document.querySelectorAll(".tile-number");
+    numberElements.forEach((element) => {
+        element.style.display = "none";
+    });
 }
 
 function solvePuzzle() {
@@ -267,4 +309,3 @@ shuffleButton.addEventListener("click", () => {
 });
 
 createPuzzleBoard();
-
