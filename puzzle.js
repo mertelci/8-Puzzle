@@ -11,6 +11,7 @@ let numbersVisible = false;
 const initialState = [1, 2, 3, 4, 5, 6, 7, 8, ""];
 let currentState = [...initialState];
 let hintVisible = false; 
+
 toggleNumbersCheckbox.addEventListener("change", () => {
     numbersVisible = toggleNumbersCheckbox.checked; 
     showNumbers(); 
@@ -265,6 +266,9 @@ function animateSolution(path) {
         if (i < path.length) {
             currentState = path[i];
             createPuzzleBoard();
+            if (!numbersVisible) {
+                hideNumbers();
+            }
             i++;
         } else {
             clearInterval(interval);
