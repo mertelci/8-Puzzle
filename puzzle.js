@@ -80,7 +80,7 @@ function createPuzzleBoard() {
         const tile = document.createElement("div");
         tile.className = "tile";
         const img = document.createElement("img");
-        img.src = currentState[i] !== "" ? `images/${currentState[i]}.jpg` : "images/black.jpg";
+        img.src = currentState[i] !== "" ? `images/${currentState[i]}.jpg` : "";
         tile.appendChild(img);
         const number = document.createElement("span");
         number.className = "tile-number";
